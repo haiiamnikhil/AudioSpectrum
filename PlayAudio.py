@@ -1,11 +1,19 @@
 from playsound import playsound
 import os
-import pytz
+import datetime
+import time
+startTime = datetime.datetime(2019,11,29,21,52)
+stopTime = datetime.datetime(2019,11,29,21,53)
+soundCount = 1
 
-RepeatSounds = 0
-time = pytz.timezone("")
+# Audio Played for 1 Minute has Generated 232 samples.
+# Playing Audio for 3 Minute can Generate a total 696 samples.
+# Audio Length below 1 second
 
-while RepeatSounds <= 500:
+while datetime.datetime.now() < startTime:
+    time.sleep(1)
+while datetime.datetime.now() >= startTime and datetime.datetime.now() <= stopTime:
     for sounds in os.listdir("testsounds"):
         playsound(os.path.join("testsounds",sounds))
-        RepeatSounds = RepeatSounds + 1
+        print(f"Sound Played Count: {soundCount}")
+        soundCount = soundCount + 1

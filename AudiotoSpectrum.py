@@ -17,3 +17,4 @@ for sounds in os.listdir("testsounds"):
     plt.title('Spectrogram with scipy.signal',size=16)
     plt.show()
     playcount = playcount+1
+print("Done!!!")
